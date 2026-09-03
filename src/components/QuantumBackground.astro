@@ -1,0 +1,124 @@
+<div class="quantum-bg">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+<style>
+
+.quantum-bg {
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+
+.quantum-bg span {
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    background:var(--primary);
+
+    border-radius:50%;
+
+    opacity:0.5;
+
+    box-shadow:
+    0 0 20px var(--primary);
+
+    animation:
+    float 12s infinite ease-in-out;
+
+}
+
+
+
+.quantum-bg span:nth-child(1){
+
+    top:20%;
+    left:15%;
+
+}
+
+
+.quantum-bg span:nth-child(2){
+
+    top:70%;
+    left:25%;
+
+    animation-delay:2s;
+
+}
+
+
+.quantum-bg span:nth-child(3){
+
+    top:30%;
+    right:20%;
+
+    animation-delay:4s;
+
+}
+
+
+.quantum-bg span:nth-child(4){
+
+    bottom:20%;
+    right:30%;
+
+    animation-delay:6s;
+
+}
+
+
+.quantum-bg span:nth-child(5){
+
+    top:50%;
+    left:50%;
+
+    animation-delay:8s;
+
+}
+
+
+
+@keyframes float {
+
+
+0%,100%{
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+
+50%{
+
+transform:
+translateY(-40px)
+scale(1.4);
+
+}
+
+
+}
+
+
+</style>

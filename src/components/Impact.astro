@@ -1,0 +1,220 @@
+---
+import { impactStats, featuredPublications, featuredSoftware } from "../data/impact.js";
+---
+
+<section id="impact" class="impact">
+<div class="heading">
+<p class="tag">RESEARCH & ENGINEERING IMPACT</p>
+<h2>Bridging Scientific Research<br />and Practical Technology</h2>
+</div>
+
+<div class="stats">
+{impactStats.map((stat)=>(
+<div class="stat-card">
+<h3>{stat.number}</h3>
+<p>{stat.label}</p>
+</div>
+))}
+</div>
+
+<div class="impact-grid">
+
+<div class="column">
+<h3 class="column-title">Research Contributions</h3>
+{featuredPublications.map((paper)=>(
+<div class="impact-card">
+<h4>{paper.title}</h4>
+<p>{paper.summary}</p>
+<a href={paper.link}>Read Paper →</a>
+</div>
+))}
+</div>
+
+<div class="column">
+<h3 class="column-title">Software Releases</h3>
+{featuredSoftware.map((software)=>(
+<div class="impact-card">
+<div class="software-header">
+<h4>
+{software.title}
+</h4>
+<a href={software.link} target="_blank">
+GitHub ↗
+</a>
+</div>
+<p>
+{software.summary}
+</p>
+<div class="tags">
+{software.tags.map((tag)=>(
+<span>{tag}</span>
+))}
+</div>
+</div>
+))}
+</div>
+
+</div>
+</section>
+
+<style>
+.impact{
+padding:7rem 5%;
+}
+
+.heading{
+margin-bottom:4rem;
+}
+
+.tag{
+color:var(--primary);
+font-size:.85rem;
+letter-spacing:.15em;
+margin-bottom:1rem;
+}
+
+h2{
+font-size:clamp(2.5rem,5vw,4rem);
+line-height:1.15;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:1.5rem;
+margin-bottom:5rem;
+}
+
+.stat-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:24px;
+padding:2rem 1rem;
+text-align:center;
+transition:.3s;
+}
+
+.stat-card:hover{
+transform:translateY(-8px);
+border-color:var(--primary);
+}
+
+.stat-card h3{
+font-size:3rem;
+color:var(--primary);
+}
+
+.stat-card p{
+margin-top:.5rem;
+color:var(--muted);
+}
+
+.impact-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:3rem;
+align-items:start;
+}
+
+.column{
+display:flex;
+flex-direction:column;
+gap:1.5rem;
+}
+
+.column-title{
+font-size:2rem;
+margin-bottom:.5rem;
+}
+
+.impact-card{
+background:rgba(15,23,42,.65);
+backdrop-filter:blur(12px);
+border:1px solid var(--border);
+border-radius:22px;
+padding:1.8rem;
+transition:.3s;
+}
+
+.impact-card:hover{
+transform:translateY(-8px);
+border-color:var(--primary);
+box-shadow:0 0 30px rgba(0,217,255,.08);
+}
+
+.impact-card h4{
+font-size:1.25rem;
+color:var(--primary);
+margin-bottom:.8rem;
+}
+
+.impact-card p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.impact-card a{
+display:inline-block;
+margin-top:1rem;
+color:var(--primary);
+font-weight:600;
+text-decoration:none;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:.5rem;
+margin-top:1.2rem;
+}
+
+.tags span{
+padding:.35rem .8rem;
+border-radius:20px;
+font-size:.8rem;
+background:rgba(255,255,255,.06);
+color:var(--text);
+}
+
+@media(max-width:900px){
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.impact-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.stats{
+grid-template-columns:1fr;
+}
+
+}
+
+.software-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:1rem;
+}
+
+.software-header a{
+font-size:.85rem;
+padding:.35rem .9rem;
+border:1px solid var(--border);
+border-radius:50px;
+color:var(--primary);
+text-decoration:none;
+transition:.3s;
+}
+
+.software-header a:hover{
+background:rgba(0,217,255,.1);
+transform:translateY(-2px);
+}
+</style>m

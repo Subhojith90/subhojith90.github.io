@@ -1,0 +1,41 @@
+<section id="about" class="section about">
+  <div class="shell">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">About the work</p>
+        <h2 class="section-title">Rigour first.<br />Clarity always.</h2>
+      </div>
+      <div class="story">
+        <p class="lead">I work across quantum computing, data science and production software, turning complex ideas into systems people can study, test and use.</p>
+        <p>My work includes quantum circuit analysis, superconducting qubit design, quantum natural language processing, scientific machine learning, secure optical communication and research in astronomy. ZX calculus is one part of a much broader interest in practical and understandable scientific computing.</p>
+        <p>Through the MS in Data Science and Management at IIT Indore and IIM Indore, I am strengthening my foundations in statistics, machine learning, analytics and management decision making. This complements three years at Citi, where I built and governed regulated data ingestion workflows and learned how reliable systems operate at enterprise scale.</p>
+      </div>
+    </div>
+
+    <div class="proof" aria-label="Selected career facts">
+      <div><strong>03</strong><span>Technical books</span></div>
+      <div><strong>03</strong><span>Published research papers</span></div>
+      <div><strong>02</strong><span>Released Android applications</span></div>
+      <div><strong>03</strong><span>Intellectual property registrations</span></div>
+      <div><strong>03</strong><span>Years in enterprise engineering</span></div>
+    </div>
+
+    <div class="focus-grid">
+      <article><span>01</span><h3>Quantum software</h3><p>Circuit representation, optimisation pipelines, quantum machine learning and practical developer tools.</p></article>
+      <article><span>02</span><h3>Quantum hardware</h3><p>Superconducting qubit modelling, Qiskit Metal workflows and computational design methods.</p></article>
+      <article><span>03</span><h3>Data science</h3><p>Statistical analysis, machine learning, data engineering and evidence based decision making.</p></article>
+      <article><span>04</span><h3>Scientific research</h3><p>Reproducible studies across quantum systems, optical communication, astronomy and computational physics.</p></article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(50px,9vw,130px)}
+  .story{max-width:690px;color:var(--ink-soft)}.story p+p{margin-top:22px}.story .lead{color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:clamp(1.45rem,3vw,2.25rem);letter-spacing:-.025em;line-height:1.25}
+  .proof{display:grid;grid-template-columns:repeat(5,1fr);margin-top:84px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .proof div{display:flex;min-height:130px;flex-direction:column;justify-content:center;padding:20px 26px;border-right:1px solid var(--line)}.proof div:last-child{border-right:0}.proof strong{font-family:"Iowan Old Style",Georgia,serif;font-size:2.6rem;font-weight:500;line-height:1}.proof span{margin-top:9px;color:var(--ink-soft);font-size:.75rem;font-weight:700}
+  .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:42px}.focus-grid article{padding:30px;border:1px solid var(--line);background:var(--card)}.focus-grid article>span{display:block;margin-bottom:54px;color:var(--red);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem}.focus-grid h3{font-family:"Iowan Old Style",Georgia,serif;font-size:1.65rem;font-weight:500;letter-spacing:-.025em}.focus-grid p{margin-top:12px;color:var(--ink-soft);font-size:.91rem}
+  @media(max-width:980px){.proof{grid-template-columns:repeat(2,1fr)}.proof div{border-bottom:1px solid var(--line)}.proof div:nth-child(2n){border-right:0}.proof div:last-child{grid-column:1/-1;border-right:0;border-bottom:0}}
+  @media(max-width:850px){.about-grid{grid-template-columns:1fr}.focus-grid{grid-template-columns:1fr}}
+  @media(max-width:500px){.proof{grid-template-columns:1fr}.proof div,.proof div:nth-child(2n){border-right:0}.proof div:last-child{grid-column:auto}.proof div{min-height:112px;padding:18px}.proof strong{font-size:2.2rem}}
+</style>

@@ -1,0 +1,26 @@
+---
+const journey = [
+  { dates: "Incoming Sep 2026", title: "MSc Optoelectronic & Quantum Technologies", org: "University of Bristol", copy: "Advanced study across quantum technologies, optoelectronics, photonics and quantum device engineering. This entry will be updated after enrolment." },
+  { dates: "Current", title: "MS Data Science & Management", org: "IIT Indore · IIM Indore", copy: "A joint programme connecting data science, algorithms, analytics and management decision making." },
+  { dates: "2021 to present", title: "Independent Quantum Researcher & Software Developer", org: "Independent research", copy: "Research, technical authorship and public software across quantum circuits, quantum hardware, scientific computing and ZX calculus." },
+  { dates: "Jul 2023 to Aug 2026", title: "Apps Dev Programmer II · Acting Data Governance Lead", org: "Citicorp Services India", copy: "Developed and maintained CI/CD enabled data ingestion processes across Hive, Hadoop and internal regulatory data warehouses, alongside metadata, lineage and data quality responsibilities." },
+  { dates: "2019 to 2023", title: "BTech Electronics & Telecommunication Engineering", org: "COEP Technological University", copy: "Engineering foundations spanning communication systems, electronics, computation and quantum enabled free space optical communication." },
+  { dates: "2019", title: "Higher Secondary Certificate", org: "MH High School", copy: "Completed Class 12 with 83.14 percent. Achieved the 99th percentile in JEE Main, the 99.7th percentile in MHT CET and qualified for JEE Advanced." },
+  { dates: "2017", title: "Secondary School Certificate", org: "DAV Public School", copy: "Completed Class 10 with a CGPA of 10 out of 10 and an overall score of 93.4 percent." }
+];
+---
+<section id="journey" class="section experience">
+  <div class="shell">
+    <p class="eyebrow">Experience & education</p>
+    <h2 class="section-title">A path through engineering,<br />data and quantum systems.</h2>
+    <div class="timeline">
+      {journey.map((item) => (
+        <article><span class="dates">{item.dates}</span><div><h3>{item.title}</h3><p class="org">{item.org}</p></div><p class="copy">{item.copy}</p></article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .timeline{margin-top:66px;border-top:1px solid var(--line)}.timeline article{display:grid;grid-template-columns:180px minmax(260px,.8fr) minmax(300px,1.2fr);gap:28px;padding:29px 0;border-bottom:1px solid var(--line)}.dates{color:var(--gold-deep);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.71rem;text-transform:uppercase}.timeline h3{font-family:"Iowan Old Style",Georgia,serif;font-size:1.25rem;font-weight:500;letter-spacing:-.02em;line-height:1.2}.org{margin-top:6px;color:var(--ink-soft);font-size:.74rem;font-weight:700}.copy{color:var(--ink-soft);font-size:.86rem}
+  @media(max-width:850px){.timeline article{grid-template-columns:1fr}.timeline article{gap:11px}.copy{margin-top:8px}}
+</style>

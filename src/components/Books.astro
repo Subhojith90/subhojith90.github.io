@@ -1,0 +1,77 @@
+---
+const books = [
+  {
+    role: "Solo author · 2026",
+    title: "ZX-Calculus for Quantum Circuits",
+    subtitle: "A Diagrammatic Approach to Quantum Circuit Analysis and Optimization",
+    publisher: "Apress · Springer Nature",
+    link: "https://link.springer.com/book/10.1007/979-8-8688-2857-7",
+    image: "/assets/zx-calculus-cover.jpg",
+    imageWidth: 604,
+    imageHeight: 927
+  },
+  {
+    role: "Lead author · 2025",
+    title: "Superconducting Qubit Design Using Qiskit Metal",
+    subtitle: "Engineering of Superconducting Quantum Architecture",
+    publisher: "Apress · Springer Nature",
+    link: "https://doi.org/10.1007/979-8-8688-1504-1",
+    image: "/assets/superconducting-qubit-design-cover.png",
+    imageWidth: 1164,
+    imageHeight: 1760
+  },
+  {
+    role: "Contributing author · 2022",
+    title: "ZX-Quantum-Py",
+    subtitle: "ZX calculus, circuit decomposition and diagrammatic optimisation",
+    publisher: "QWorld · ISBN 979-8-8302-2106-1",
+    link: "https://github.com/Subhojith90/QIntern-ZX-Calculus-demo",
+    image: "/assets/zx-quantum-py-cover.png",
+    imageWidth: 1032,
+    imageHeight: 1294
+  }
+];
+---
+
+<section id="books" class="section books">
+  <div class="shell">
+    <div class="heading-row">
+      <div><p class="eyebrow">Major publications</p><h2 class="section-title">Three books.<br />One evolving practice.</h2></div>
+      <div class="carousel-controls" aria-label="Book carousel controls"><button type="button" data-prev aria-label="Previous book">←</button><button type="button" data-next aria-label="Next book">→</button></div>
+    </div>
+
+    <div class="carousel" data-carousel tabindex="0" aria-label="Published books">
+      {books.map((book, index) => (
+        <article class:list={["book-slide", { illustrated: book.image }]}>
+          <div class="slide-copy">
+            <div class="slide-top"><span>0{index + 1}</span><span>{book.role}</span></div>
+            <div>
+              <p class="publisher">{book.publisher}</p>
+              <h3>{book.title}</h3>
+              <p class="subtitle">{book.subtitle}</p>
+            </div>
+            <a href={book.link} target="_blank" rel="noreferrer">View publication <span aria-hidden="true">↗</span></a>
+          </div>
+          {book.image && <div class="cover"><img src={book.image} alt={`Cover of ${book.title}`} width={book.imageWidth} height={book.imageHeight} loading="lazy" /></div>}
+        </article>
+      ))}
+    </div>
+    <p class="hint">Swipe or use the arrows to browse</p>
+  </div>
+</section>
+
+<script>
+  const carousel = document.querySelector('[data-carousel]');
+  const previous = document.querySelector('[data-prev]');
+  const next = document.querySelector('[data-next]');
+  const move = (direction) => carousel?.scrollBy({ left: direction * carousel.clientWidth * 0.86, behavior: 'smooth' });
+  previous?.addEventListener('click', () => move(-1));
+  next?.addEventListener('click', () => move(1));
+</script>
+
+<style>
+  .books{background:var(--ink);color:#fffdf7}.books .eyebrow{color:#e7bd37}.heading-row{display:flex;align-items:end;justify-content:space-between;gap:30px}.carousel-controls{display:flex;gap:8px}.carousel-controls button{width:46px;height:46px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:transparent;color:#fffdf7;font-size:1.2rem;cursor:pointer;transition:background 180ms ease,color 180ms ease}.carousel-controls button:hover{background:#e7bd37;color:var(--ink)}
+  .carousel{display:grid;grid-auto-columns:min(90%,980px);grid-auto-flow:column;gap:18px;overflow-x:auto;margin-top:58px;padding-bottom:14px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#e7bd37 rgba(255,255,255,.09)}.book-slide{display:grid;min-height:560px;grid-template-columns:1fr;padding:34px;border:1px solid rgba(255,255,255,.18);background:#20201c;scroll-snap-align:start}.book-slide.illustrated{grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:42px}.slide-copy{display:flex;min-width:0;flex-direction:column}.slide-top{display:flex;justify-content:space-between;gap:30px;color:#979288;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;text-transform:uppercase}.publisher{margin-top:70px;color:#e7bd37;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.book-slide h3{max-width:620px;margin-top:12px;font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(2rem,4vw,3.7rem);font-weight:500;letter-spacing:-.045em;line-height:.95}.subtitle{max-width:590px;margin-top:17px;color:#bdb7aa;font-size:.88rem}.slide-copy>a{margin-top:auto;padding-top:32px;font-size:.8rem;font-weight:800;text-decoration:none}.slide-copy>a:hover{color:#e7bd37}.cover{display:flex;height:500px;align-self:center;align-items:center;justify-content:center;padding:10px;background:#2a2924}.cover img{display:block;width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain;box-shadow:0 20px 38px rgba(0,0,0,.36)}.hint{margin-top:14px;color:#8f8b82;font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+  @media(max-width:760px){.heading-row{align-items:flex-start;flex-direction:column}.book-slide,.book-slide.illustrated{min-height:590px;grid-template-columns:minmax(0,1fr) minmax(150px,210px);align-items:stretch}.cover{height:330px;grid-column:2;grid-row:1}.carousel{grid-auto-columns:94%}.publisher{margin-top:48px}.book-slide h3{font-size:2.25rem}}
+  @media(max-width:520px){.book-slide,.book-slide.illustrated{display:flex;min-height:700px;flex-direction:column;padding:24px}.cover{width:190px;height:290px;order:-1;align-self:flex-end}.publisher{margin-top:34px}}
+</style>

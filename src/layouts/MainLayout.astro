@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+
+const {
+  title = "Subhojit Halder | Quantum Computing Author & Researcher",
+  description = "The official portfolio of Subhojit Halder, a quantum computing author, researcher and software engineer working across quantum technology, data science and scientific computing."
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, "https://subhojith90.github.io");
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://subhojith90.github.io/#person",
+      name: "Subhojit Halder",
+      url: "https://subhojith90.github.io",
+      jobTitle: "Quantum Computing Researcher and Author",
+      knowsAbout: ["Quantum computing", "ZX calculus", "Quantum software", "Quantum circuit optimisation", "Superconducting qubits", "Data science", "Data engineering"],
+      sameAs: [
+        "https://github.com/Subhojith90",
+        "https://www.linkedin.com/in/subhojit-halder-5532b4143/",
+        "https://scholar.google.com/citations?hl=en&user=Y137olYAAAAJ",
+        "https://orcid.org/0000-0002-9875-0357",
+        "https://www.iaac.space/en/subhalder"
+      ]
+    },
+    {
+      "@type": "Book",
+      name: "ZX-Calculus for Quantum Circuits",
+      alternateName: "A Diagrammatic Approach to Quantum Circuit Analysis and Optimization",
+      url: "https://link.springer.com/book/10.1007/979-8-8688-2857-7",
+      author: { "@id": "https://subhojith90.github.io/#person" },
+      publisher: { "@type": "Organization", name: "Apress" },
+      datePublished: "2026"
+    }
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Subhojit Halder" />
+    <meta name="theme-color" content="#f4efe3" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content="https://subhojith90.github.io/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://subhojith90.github.io/og.png" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <main><slot /></main>
+  </body>
+</html>

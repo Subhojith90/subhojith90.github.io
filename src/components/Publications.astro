@@ -1,0 +1,19 @@
+---
+import { publications } from "../data/publications.js";
+---
+<section id="writing" class="section publications">
+  <div class="shell publication-layout">
+    <div class="heading"><p class="eyebrow">Research publications</p><h2 class="section-title">Beyond one discipline.</h2><p class="section-intro">Peer reviewed and archival work across lunar radiation, quantum secure optical communication and solar radiation analysis.</p></div>
+    <div class="publication-list">
+      {publications.map((paper) => (
+        <a class="paper" href={paper.link} target="_blank" rel="noreferrer">
+          <span class="year">{paper.year}</span><span class="paper-copy"><strong>{paper.title}</strong><small>{paper.venue}</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .publications{background:#ded5c4}.publication-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(50px,9vw,120px)}.heading{position:sticky;top:120px;align-self:start}.publication-list{border-top:1px solid var(--line)}.paper{display:grid;grid-template-columns:56px 1fr 24px;gap:18px;align-items:start;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none}.year{color:var(--gold-deep);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.71rem}.paper-copy{display:flex;flex-direction:column;gap:10px}.paper-copy strong{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(1.17rem,2.1vw,1.55rem);font-weight:500;letter-spacing:-.025em;line-height:1.2}.paper-copy small{color:var(--ink-soft);font-size:.76rem}.arrow{transition:transform 180ms ease}.paper:hover .arrow{transform:translate(3px,-3px)}.paper:hover strong{color:var(--gold-deep)}
+  @media(max-width:850px){.publication-layout{grid-template-columns:1fr}.heading{position:static}}
+</style>

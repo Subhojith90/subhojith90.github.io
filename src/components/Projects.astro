@@ -1,0 +1,25 @@
+---
+import { projects } from "../data/projects.js";
+---
+<section id="work" class="section projects">
+  <div class="shell">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="section-title">Research that can be<br />opened and inspected.</h2>
+    <p class="section-intro">Public software and reproducibility releases spanning quantum machine learning, many body systems and diagrammatic circuit optimisation.</p>
+    <div class="project-grid">
+      {projects.map((project, index) => (
+        <article class="project-card">
+          <div class="project-top"><span>0{index + 1}</span><span>{project.category}</span></div>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div class="tags">{project.tags.map((tag) => <span>{tag}</span>)}</div>
+          <a href={project.link} target="_blank" rel="noreferrer">Open project <span aria-hidden="true">↗</span></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:58px}.project-card{display:flex;min-height:390px;flex-direction:column;padding:30px;border:1px solid var(--line);background:var(--card);transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease}.project-card:hover{transform:translateY(-5px);border-color:rgba(141,103,0,.55);box-shadow:var(--shadow)}.project-top{display:flex;justify-content:space-between;gap:20px;color:var(--gold-deep);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.69rem;text-transform:uppercase}.project-card h3{max-width:530px;margin-top:50px;font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(1.6rem,3vw,2.25rem);font-weight:500;letter-spacing:-.035em;line-height:1.06}.project-card>p{margin-top:18px;color:var(--ink-soft);font-size:.91rem}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}.tags span{padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);font-size:.68rem;font-weight:700}.project-card>a{margin-top:auto;padding-top:30px;font-size:.8rem;font-weight:800;text-decoration:none}.project-card>a:hover{color:var(--gold-deep)}
+  @media(max-width:760px){.project-grid{grid-template-columns:1fr}.project-card{min-height:350px}}
+</style>

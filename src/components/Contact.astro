@@ -1,0 +1,25 @@
+---
+const profiles = [
+  { code: "GH", name: "GitHub", note: "Open software & research", link: "https://github.com/Subhojith90" },
+  { code: "IN", name: "LinkedIn", note: "Updates & professional work", link: "https://www.linkedin.com/in/subhojit-halder-5532b4143/" },
+  { code: "GS", name: "Google Scholar", note: "Research profile", link: "https://scholar.google.com/citations?hl=en&user=Y137olYAAAAJ" },
+  { code: "OR", name: "ORCID", note: "0000-0002-9875-0357", link: "https://orcid.org/0000-0002-9875-0357" },
+  { code: "IA", name: "IAAC Ambassador", note: "Official ambassador page", link: "https://www.iaac.space/en/subhalder" }
+];
+---
+<footer id="contact" class="contact">
+  <div class="shell contact-grid">
+    <div><p class="eyebrow">Let’s work together</p><h2>Ideas become useful<br /><em>when we build them.</em></h2></div>
+    <div class="contact-copy"><p>I’m open to rigorous collaborations across quantum software, scientific computing, reproducible research and technical authorship.</p><a class="email" href="https://mail.google.com/mail/?view=cm&fs=1&to=subhojith90%40gmail.com" target="_blank" rel="noreferrer">Start a conversation <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="shell profile-grid">
+    {profiles.map((profile) => (
+      <a href={profile.link} target="_blank" rel="noreferrer"><span class="code" aria-hidden="true">{profile.code}</span><span><strong>{profile.name}</strong><small>{profile.note}</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+    ))}
+  </div>
+  <div class="shell footer-row"><p>© 2026 Subhojit Halder</p><p>Quantum author · Researcher · Software engineer</p></div>
+</footer>
+<style>
+  .contact{padding:104px 0 28px;background:var(--ink);color:#fffdf7}.contact .eyebrow{color:#e7bd37}.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:end}.contact h2{font-family:"Iowan Old Style",Georgia,serif;font-size:clamp(2.8rem,6vw,5.7rem);font-weight:500;letter-spacing:-.055em;line-height:.93}.contact h2 em{color:#e7bd37;font-weight:500}.contact-copy>p{max-width:480px;color:#bdb7aa}.email{display:inline-block;margin-top:28px;padding-bottom:6px;border-bottom:1px solid #e7bd37;color:#fffdf7;font-size:clamp(1rem,2vw,1.25rem);font-weight:700;text-decoration:none}.email:hover{color:#e7bd37}.profile-grid{display:grid;grid-template-columns:repeat(2,1fr);margin-top:88px;border-top:1px solid rgba(255,255,255,.17);border-left:1px solid rgba(255,255,255,.17)}.profile-grid>a{display:grid;grid-template-columns:42px 1fr 20px;gap:14px;align-items:center;padding:22px;border-right:1px solid rgba(255,255,255,.17);border-bottom:1px solid rgba(255,255,255,.17);text-decoration:none}.profile-grid>a:hover{background:rgba(231,189,55,.08)}.code{color:#e7bd37;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem}.profile-grid a>span:nth-child(2){display:flex;min-width:0;flex-direction:column}.profile-grid strong{font-family:"Iowan Old Style",Georgia,serif;font-size:1.13rem;font-weight:500}.profile-grid small{margin-top:3px;color:#8f8b82;font-size:.66rem}.arrow{color:#8f8b82;transition:transform 180ms ease}.profile-grid>a:hover .arrow{transform:translate(3px,-3px);color:#e7bd37}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:70px;padding-top:24px;border-top:1px solid rgba(255,255,255,.17);color:#8f8b82;font-size:.69rem}
+  @media(max-width:760px){.contact{padding-top:76px}.contact-grid{grid-template-columns:1fr}.profile-grid{grid-template-columns:1fr}.footer-row{align-items:flex-start;flex-direction:column;margin-top:54px}}
+</style>
